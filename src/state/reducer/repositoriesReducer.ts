@@ -1,38 +1,45 @@
+import { ActionType } from '../action-types';
+import { Action } from '../actions';
+
 interface RepositoriesState {
   loading: boolean;
   error: string | null;
   data: string[];
 }
 
-// interface Action {
-//   type: string;
-//   payload?: any;    // ? : maynot, may have, if have it, the type is any
+// // move to actions.ts
+// // interface Action {
+// //   type: string;
+// //   payload?: any;    // ? : maynot, may have, if have it, the type is any
+// // }
+
+// // separate each action interface as below
+// interface SearchRepositoriesAction {
+//   type: ActionType.SEARCH_REPOSITORIES;
 // }
-// separate each action interface
-interface SearchRepositoriesAction {
-  type: 'search_repositories';
-}
 
-interface SearchRepositoriesSuccessAction {
-  type: 'search_repositories_success';
-  payload: string[]
-}
+// interface SearchRepositoriesSuccessAction {
+//   type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
+//   payload: string[]
+// }
 
-interface SearchRepositoriesErrorAction {
-  type: 'search_repositories_error';
-  payload: string
-}
+// interface SearchRepositoriesErrorAction {
+//   type: ActionType.SEARCH_REPOSITORIES_ERROR;
+//   payload: string
+// }
 
-type Action =
-  | SearchRepositoriesAction
-  | SearchRepositoriesSuccessAction
-  | SearchRepositoriesErrorAction
+// move to actions.ts
+// type Action =
+//   | SearchRepositoriesAction
+//   | SearchRepositoriesSuccessAction
+//   | SearchRepositoriesErrorAction
 
-enum ActionType {
-  SEARCH_REPOSITORIES = 'search_repositories',
-  SEARCH_REPOSITORIES_SUCCESS = 'search_repositories_success',
-  SEARCH_REPOSITORIES_ERROR = 'search_repositories_error'
-}
+// move to action-types.ts
+// enum ActionType {
+//   SEARCH_REPOSITORIES = 'search_repositories',
+//   SEARCH_REPOSITORIES_SUCCESS = 'search_repositories_success',
+//   SEARCH_REPOSITORIES_ERROR = 'search_repositories_error'
+// }
 
 const reducer = (
   state: RepositoriesState,
