@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
 // async Action creator - use thunk
 export const searchRepositories = (term: string) => {
   // call dispatch fn
-  return async (dispatch: any) => {
+  return async (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.SEARCH_REPOSITORIES
     });
@@ -27,7 +28,7 @@ export const searchRepositories = (term: string) => {
         payload: names
       })
 
-
+    // catch error
     } catch (err) {
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_ERROR,
