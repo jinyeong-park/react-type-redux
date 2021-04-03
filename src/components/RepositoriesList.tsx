@@ -1,12 +1,18 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';   //Allows you to extract data from the Redux store state, using a selector function.
 // import { useDispatch } from 'react-redux'; //# useDispatch : get access dispatch fn inside of component
 // import { actionCreators } from '../state';
 import { useActions } from '../hooks/useActions';
+
 
 const RepositoriesList: React.FC = () => {
   const [term, setTerm] = useState('');
   // const dispatch = useDispatch();
   const { searchRepositories } = useActions();
+  // const state =  useSelector((state) => state);
+  // console.log(state);
+  const { data, error, loading } = useSelector((state: any) => state.repositories);
+
 
   const onSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
