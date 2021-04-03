@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 import repositoriesReducer from './repositoriesReducer';
 
+// state inside of redux store: object has - key: repositories and value: repositoriesReducer
 const reducers = combineReducers({
   repositories: repositoriesReducer,
 })
