@@ -31,6 +31,14 @@ const RepositoriesList: React.FC = () => {
         <input value={term} onChange={e => setTerm(e.target.value)} />
         <button>Search</button>
       </form>
+      {/* if error is defined(not null), then show error*/}
+      {error && <h3>{error}</h3>}
+      {/* if loading is true, show Loading text */}
+      {loading && <h3>Loading...</h3>}
+      {/* if there is no error, loading then show data */}
+      {!error && !loading &&
+        data.map((name) => <div key={name}>{name}</div>)
+      }
     </div>
   )
 };
